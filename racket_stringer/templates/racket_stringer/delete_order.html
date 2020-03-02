@@ -1,0 +1,23 @@
+{% extends "racket_stringer/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row mt-3">
+    <div class="col">
+        <div class="card bg-light shadow-sm ">
+            <div class="card-header">Delete Order - {{ object }}</div>
+            <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col-sm-4 mx-auto">
+                        <form method="post">{% csrf_token %}
+                            <p>Are you sure you want to delete "{{ object }}"?</p>
+                            <a class="btn btn-primary" href="{% url 'show_order' object.id %}" role="button">No, go back.</a>
+                            <input class="btn btn-danger" type="submit" value="Yes, delete." />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

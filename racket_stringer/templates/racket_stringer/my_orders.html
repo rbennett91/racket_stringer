@@ -1,0 +1,43 @@
+{% extends "racket_stringer/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col mt-3">
+        <div class="card bg-light shadow-sm ">
+            <div class="card-header">My Orders</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        {% if incomplete_orders.count == 0 %}
+                        <div class="card text-white bg-success">
+                        {% elif incomplete_orders.count >= 1 and incomplete_orders.count <= 4 %}
+                        <div class="card text-white bg-warning">
+                        {% elif incomplete_orders.count > 4 %}
+                        <div class="card text-white bg-danger">
+                        {% endif %}
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Orders Needing Work:</h5>
+                                <h3 class="card-text">{{ incomplete_orders.count }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Incomplete Orders</h5>
+                                <ul>
+                                {% for order in incomplete_orders %}
+                                    <li><a href="{% url 'show_order' order.id %}">{{ order }}</a></li>
+                                {% empty %}
+                                    <li>No orders to work on.</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

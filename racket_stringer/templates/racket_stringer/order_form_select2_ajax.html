@@ -1,0 +1,45 @@
+<script>
+$(document).ready(function() {
+    $("#id_customer").select2({});
+    $("#id_assigned_to").select2({});
+    $("#id_racket").select2({
+        minimumInputLength: 3,
+        ajax: {
+            url: 'http://{{ domain }}/racket_stringer/search_rackets',
+            delay: 300,
+            data: function (params) {
+                var query = {
+                    search: params.term,
+                }
+                return query;
+            }
+        }
+    });
+    $("#id_main_string").select2({
+        minimumInputLength: 3,
+        ajax: {
+            url: 'http://{{ domain }}/racket_stringer/search_strings',
+            delay: 300,
+            data: function (params) {
+                var query = {
+                    search: params.term,
+                }
+                return query;
+            }
+        }
+    });
+    $("#id_cross_string").select2({
+        minimumInputLength: 3,
+        ajax: {
+            url: 'http://{{ domain }}/racket_stringer/search_strings',
+            delay: 300,
+            data: function (params) {
+                var query = {
+                    search: params.term,
+                }
+                return query;
+            }
+        }
+    });
+});
+</script>

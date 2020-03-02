@@ -1,0 +1,86 @@
+{% extends "racket_stringer/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row mt-3">
+    <div class="col">
+        <div class="card bg-light shadow-sm ">
+            <div class="card-header">Order Details - {{ object }} <a class="btn btn-danger float-right" href="{% url 'delete_order' object.id %}" role="button">Delete Order</a></div>
+            <div class="card-body">
+                <h5 class="card-title">General Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Customer:</dt>
+                    <dd class="col-sm-9">{{ object.customer }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Due Date:</dt>
+                    <dd class="col-sm-9">{{ object.due_date }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Assigned to Stringer:</dt>
+                    <dd class="col-sm-9">{{ object.assigned_to }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Order Complete:</dt>
+                    <dd class="col-sm-9">{{ object.is_complete }}</dd>
+                </dl>
+                <hr>
+
+                <h5 class="card-title">String Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Main Strings:</dt>
+                    <dd class="col-sm-9">{{ object.main_string }} @ {{ object.main_string_tension }} lbs</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Cross Strings:</dt>
+                    <dd class="col-sm-9">{{ object.cross_string }} @ {{ object.cross_string_tension }} lbs</dd>
+                </dl>
+                <hr>
+
+                <h5 class="card-title">Racket Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Type:</dt>
+                    <dd class="col-sm-9">{{ object.racket.brand }} {{ object.racket.model }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">String Length:</dt>
+                    <dd class="col-sm-9">{{ object.racket.string_length }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Recommended Tension:</dt>
+                    <dd class="col-sm-9">{{ object.racket.recommended_tension_lbs }} lbs</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">String Pattern:</dt>
+                    <dd class="col-sm-9">{{ object.racket.string_pattern }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Main Holes Tied:</dt>
+                    <dd class="col-sm-9">{{ object.racket.main_holes_tied }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Main Holes Skipped:</dt>
+                    <dd class="col-sm-9">{{ object.racket.main_holes_skipped }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Cross Holes Tied:</dt>
+                    <dd class="col-sm-9">{{ object.racket.cross_holes_tied }}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3">Cross Holes Started:</dt>
+                    <dd class="col-sm-9">{{ object.racket.cross_holes_started }}</dd>
+                </dl>
+                <hr>
+
+                <h5 class="card-title">Extra Information</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Order Notes:</dt>
+                    <dd class="col-sm-9">{{ object.notes }}</dd>
+                </dl>
+                <hr>
+                <a class="btn btn-warning float-right" href="{% url 'update_order' object.id %}" role="button">Update Order</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
