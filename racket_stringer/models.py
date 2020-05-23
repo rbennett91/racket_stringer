@@ -67,7 +67,7 @@ class Racket(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=['brand', 'model'],
-                name='unique_name'
+                name='unique_racket_name'
             ),
         ]
 
@@ -83,7 +83,7 @@ class String(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=['brand', 'name'],
-                name='unique_name'
+                name='unique_string_name'
             ),
         ]
 
@@ -100,6 +100,6 @@ class Customer(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=['first_name', 'last_name'],
-                name='unique_name'
+                name='unique_customer_name'
             ),
         ]

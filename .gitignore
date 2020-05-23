@@ -4,3 +4,4 @@ settings.py
 *.pyc
 *.sw*
 *.sqlite3
+todo.txt
