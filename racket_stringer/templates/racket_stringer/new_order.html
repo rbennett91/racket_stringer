@@ -16,4 +16,9 @@
 
 {% block extra_js %}
 {% include "racket_stringer/order_form_select2_ajax.html" %}
+<script>
+$(document).ready(function() {
+    $("#id_due_date").flatpickr();
+});
+</script>
 {% endblock extra_js %}
