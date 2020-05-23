@@ -18,7 +18,7 @@ class Order(models.Model):
         related_name='+',
     )
     main_string_tension = models.PositiveSmallIntegerField(
-        default=56,
+        default=55,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)
@@ -30,7 +30,7 @@ class Order(models.Model):
         related_name='+',
     )
     cross_string_tension = models.PositiveSmallIntegerField(
-        default=56,
+        default=55,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)

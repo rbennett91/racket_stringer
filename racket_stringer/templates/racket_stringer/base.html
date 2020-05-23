@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="{% static "racket_stringer/css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "racket_stringer/css/select2.min.css" %}">
     <link rel="stylesheet" href="{% static "racket_stringer/css/flatpickr.min.css" %}">
+    <link rel="stylesheet" href="{% static "racket_stringer/css/app.css" %}">
     {% block extra_css %}
     {% endblock extra_css %}
   </head>
   <body>
-    <div class="container px-0 ">
+    <div class="container">
     {% include "racket_stringer/top_navbar.html" %}
     {% block content %}
     {% endblock content %}

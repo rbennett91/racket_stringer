@@ -2,10 +2,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row mt-3">
+<div class="row">
     <div class="col">
-        <div class="card bg-light shadow-sm ">
-            <div class="card-header">Order Details - {{ object }} <a class="btn btn-danger float-right" href="{% url 'delete_order' object.id %}" role="button">Delete Order</a></div>
+        <div class="card">
+            <div class="card-header">Order Details: {{ object }}</div>
             <div class="card-body">
                 <h5 class="card-title">General Information</h5>
                 <dl class="row">
@@ -78,6 +78,7 @@
                     <dd class="col-sm-9">{{ object.notes }}</dd>
                 </dl>
                 <hr>
+                <a class="btn btn-danger float-right" href="{% url 'delete_order' object.id %}" role="button">Delete Order</a>
                 <a class="btn btn-warning float-right" href="{% url 'update_order' object.id %}" role="button">Update Order</a>
             </div>
         </div>

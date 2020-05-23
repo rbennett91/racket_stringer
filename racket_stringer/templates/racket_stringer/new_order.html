@@ -2,9 +2,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row mt-3">
+<div class="row">
     <div class="col">
-        <div class="card bg-light shadow-sm ">
+        <div class="card">
             <div class="card-header">Create a New Order</div>
             <div class="card-body">
                 {% crispy form %}
@@ -15,10 +15,5 @@
 {% endblock content %}
 
 {% block extra_js %}
-{% include "racket_stringer/order_form_select2_ajax.html" %}
-<script>
-$(document).ready(function() {
-    $("#id_due_date").flatpickr();
-});
-</script>
+{% include "racket_stringer/order_form_js.html" %}
 {% endblock extra_js %}
