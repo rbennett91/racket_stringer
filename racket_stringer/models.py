@@ -10,31 +10,41 @@ class Order(models.Model):
     )
     racket = models.ForeignKey(
         'Racket',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
     main_string = models.ForeignKey(
         'String',
         on_delete=models.CASCADE,
         related_name='+',
+        null=True,
+        blank=True
     )
     main_string_tension = models.PositiveSmallIntegerField(
         default=55,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)
-        ]
+        ],
+        null=True,
+        blank=True
     )
     cross_string = models.ForeignKey(
         'String',
         on_delete=models.CASCADE,
         related_name='+',
+        null=True,
+        blank=True
     )
     cross_string_tension = models.PositiveSmallIntegerField(
         default=55,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)
-        ]
+        ],
+        null=True,
+        blank=True
     )
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField()
