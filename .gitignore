@@ -1,6 +1,6 @@
 venv/
 __pycache__/
-settings.py
+*.env
 *.pyc
 *.sw*
 *.sqlite3
