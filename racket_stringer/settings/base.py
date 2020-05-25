@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'racket_stringer',
     'crispy_forms',
     'django_extensions',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -91,11 +92,22 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# django-storages aws
+# https://django-storages.readthedocs.io/en/1.9.1/backends/amazon-S3.html
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_LOCATION = os.environ['AWS_STORAGE_BUCKET_LOCATION']
+AWS_QUERYSTRING_AUTH = False
+AWS_DEFAULT_ACL = None
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://{bucket}.s3.amazonaws.com/{location}/'.format(
+    bucket=AWS_STORAGE_BUCKET_NAME,
+    location=AWS_LOCATION
+)
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = '<TODO>'
-
+# django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
