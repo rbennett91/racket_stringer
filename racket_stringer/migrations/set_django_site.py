@@ -4,15 +4,11 @@ from django.conf import settings
 
 def update_site_name(apps, schema_editor):
     SiteModel = apps.get_model('sites', 'Site')
-    # TODO: maybe don't hard code this here, update this.
-    # Make this a setting, make a note in project README
-    domain = '192.168.1.111:8080'
-    name = 'racket_stringer'
 
     SiteModel.objects.update_or_create(
         pk=settings.SITE_ID,
-        domain=domain,
-        name=name
+        domain=settings.SITE_DOMAIN,
+        name='racket_stringer'
     )
 
 
