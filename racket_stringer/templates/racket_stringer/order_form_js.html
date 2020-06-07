@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#id_racket").select2({
         minimumInputLength: 3,
         ajax: {
-            url: 'http://{{ domain }}/racket_stringer/search_rackets',
+            url: '/racket_stringer/search_rackets',
             delay: 300,
             data: function (params) {
                 var query = {
@@ -18,7 +18,7 @@ $(document).ready(function() {
     $("#id_main_string").select2({
         minimumInputLength: 3,
         ajax: {
-            url: 'http://{{ domain }}/racket_stringer/search_strings',
+            url: '/racket_stringer/search_strings',
             delay: 300,
             data: function (params) {
                 var query = {
@@ -31,7 +31,7 @@ $(document).ready(function() {
     $("#id_cross_string").select2({
         minimumInputLength: 3,
         ajax: {
-            url: 'http://{{ domain }}/racket_stringer/search_strings',
+            url: '/racket_stringer/search_strings',
             delay: 300,
             data: function (params) {
                 var query = {
