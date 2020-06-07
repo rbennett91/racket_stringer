@@ -72,7 +72,7 @@ python manage.py createsuperuser
 python manage.py runserver_plus 0.0.0.0:8080
 ```
 
-Visit https://<server_domain>:8080/racket_stringer in your web browser and login with the newly created user.
+Visit http://<server_domain>:8080/racket_stringer in your web browser and login with the newly created user.
 
 ### Deploying to a Server
 ...
