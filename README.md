@@ -4,20 +4,20 @@ A Python and Django tennis racket stringing CMS
 ## How Does it Work?
 ...
 
-## Getting Started with Development
+### Getting Started with Development
 
-### Clone Repository
+#### Clone Repository
 ```
 git clone https://github.com/rbennett91/racket_stringer.git
 ```
 
-### System Packages
+#### System Packages
 You'll need to install system-wide packages to setup a development environment. On an Ubuntu 20.04 machine:
 ```
 sudo apt install gcc postgresql-12 libpq-dev python3-venv python3-dev
 ```
 
-### Create a Database
+#### Create a Database
 Inside Postgres:
 ```
 CREATE ROLE <role_name_here> WITH LOGIN PASSWORD '<password_here>';
@@ -26,7 +26,7 @@ CREATE DATABASE <database_name_here> WITH OWNER <role_name_here>;
 
 Note the role name, password, and database name.
 
-### Create a Virtual Environment
+#### Create a Virtual Environment
 In the top-level of the code repository:
 ```
 python3 -m venv venv
@@ -36,7 +36,7 @@ pip install -r requirements/development.txt
 
 Note that you might see miscellaneous errors like `ERROR: Failed building wheel for <package>`. These may be ignored.
 
-### Set Environment Variables
+#### Set Environment Variables
 This project uses environment variables to manage sensitive information like the database connection and Django's `SECRET_KEY`. Create an environment variable file by copying the included template:
 ```
 cp racket_stringer/settings/app.env.example racket_stringer/settings/app.env
@@ -50,32 +50,44 @@ Instead, open the new `racket_stringer/settings/app.env` with your favorite text
 
 Note that you'll need to re-source this file if you make changes to it. This file should be kept out of source control, and it is included in this project's `.gitignore`. Moving or renaming this file will require an update to `.gitignore` to keep it out of source control.
 
-### Create a User
+#### Run Django Migrations
+```
+python manage.py migrate
+```
+
+#### Populate the Database
+Use the custom Django Management Commands to populate the database with rackets and strings:
+```
+python manage.py import_rackets
+python manage.py import_strings
+```
+
+#### Create a User
+```
+python manage.py createsuperuser
+```
+
+#### Run the Development Server
+```
+python manage.py runserver_plus 0.0.0.0:8080
+```
+
+Visit https://<server_domain>:8080/racket_stringer in your web browser and login with the newly created user.
+
+### Deploying to a Server
 ...
 
-### Run Django Migrations
-...
-
-### Populate the Database
-...
-
-### Run the Development Server
-...
-
-## Deploying to a Server
-...
-
-## Built With
+### Built With
 * Python 3.8.2
 * PostgreSQL 12.2
 * NGINX ...
 * Ubuntu 20.04
 
-## Future Ideas
+### Future Ideas
 * Add functionality to search historical orders
 
-## Guides Used in Deployment
+### Guides Used in Deployment
 ...
 
-## License
+### License
 MIT
