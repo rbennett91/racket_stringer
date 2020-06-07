@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'racket_stringer',
     'crispy_forms',
     'django_extensions',
-    'storages',
 ]
 
 MIDDLEWARE = [
