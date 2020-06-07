@@ -2,7 +2,6 @@ from datetime import datetime, timedelta
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.sites.models import Site
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.http import JsonResponse
@@ -51,14 +50,6 @@ class NewOrder(LoginRequiredMixin, CreateView):
         }
         return initial
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        domain = Site.objects.get_current().domain
-
-        context['domain'] = domain
-        return context
-
     def get_success_url(self):
         return reverse('show_order', kwargs={'pk': self.object.id})
 
@@ -74,14 +65,6 @@ class UpdateOrder(LoginRequiredMixin, UpdateView):
     template_name = 'racket_stringer/update_order.html'
     model = Order
     form_class = OrderForm
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        domain = Site.objects.get_current().domain
-
-        context['domain'] = domain
-        return context
 
     def get_success_url(self):
         return reverse('show_order', kwargs={'pk': self.object.id})
@@ -112,7 +95,7 @@ def search_rackets(request):
     # select2 expects a specific response structure:
     # https://select2.org/data-sources/formats.
     # so, we'll annotate Racket objects with the expected 'text' field.
-    # this allows us to 1) search by brand + model, and 2) return the output
+    # this allows us to 1) search by brand or model, and 2) return the output
     # of the orm 'values' function.
     rackets = Racket.objects.annotate(
         text=Concat('brand', Value(' '), 'model')
@@ -141,7 +124,7 @@ def search_strings(request):
     # select2 expects a specific response structure:
     # https://select2.org/data-sources/formats.
     # so, we'll annotate String objects with the expected 'text' field.
-    # this allows us to 1) search by brand + name, and 2) return the output
+    # this allows us to 1) search by brand or name, and 2) return the output
     # of the orm 'values' function.
     strings = String.objects.annotate(
         text=Concat('brand', Value(' '), 'name')
