@@ -2,6 +2,7 @@
 A Python and Django tennis racket stringing CMS
 
 ## How Does it Work?
+...
 
 ## Getting Started with Development
 
@@ -49,7 +50,20 @@ Instead, open the new `racket_stringer/settings/app.env` with your favorite text
 
 Note that you'll need to re-source this file if you make changes to it. This file should be kept out of source control, and it is included in this project's `.gitignore`. Moving or renaming this file will require an update to `.gitignore` to keep it out of source control.
 
+### Create a User
+...
+
+### Run Django Migrations
+...
+
+### Populate the Database
+...
+
+### Run the Development Server
+...
+
 ## Deploying to a Server
+...
 
 ## Built With
 * Python 3.8.2
@@ -61,6 +75,7 @@ Note that you'll need to re-source this file if you make changes to it. This fil
 * Add functionality to search historical orders
 
 ## Guides Used in Deployment
+...
 
 ## License
 MIT
