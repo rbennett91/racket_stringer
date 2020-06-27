@@ -88,6 +88,7 @@ Visit http://<server_domain>:8080/racket_stringer in your web browser and login 
 ### Guides Used in Deployment
 * [Setting up Django and your web server with uWSGI and nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
 * [How To Secure Nginx with Let's Encrypt on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
+* [Deploying Django applications in production with uwsgi and nginx](https://medium.com/all-about-django/deploying-django-applications-in-production-with-uwsgi-and-nginx-78aac8c0f735)
 
 ### License
 MIT
