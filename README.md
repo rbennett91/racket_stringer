@@ -74,20 +74,19 @@ python manage.py runserver_plus 0.0.0.0:8080
 
 Visit http://<server_domain>:8080/racket_stringer in your web browser and login with the newly created user.
 
-### Deploying to a Server
-...
-
-### Built With
+### Built and Deployed with
 * Python 3.8.2
 * PostgreSQL 12.2
-* NGINX ...
+* uWSGI 2.0.19.1
+* nginx 1.17.10
 * Ubuntu 20.04
 
 ### Future Ideas
 * Add functionality to search historical orders
+* Improve UI
 
 ### Guides Used in Deployment
-...
+[Setting up Django and your web server with uWSGI and nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
 
 ### License
 MIT
