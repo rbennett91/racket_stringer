@@ -1,8 +1,11 @@
 # racket_stringer
 A Python and Django tennis racket stringing CMS
 
-## How Does it Work?
-...
+## Motivation
+I string tennis rackets, mostly for myself but also for friends and teammates. This simple webapp helps manage the rackets I string by:
+* tracking customers and their orders
+* maintaining a database with rackets and strings (shamelessly scraped from [Klipper USA](https://klipperusa.com/) and [Tennis Warehouse University](http://twu.tennis-warehouse.com))
+* cataloging all pertinent order information in one place (strings + tension to use, string pattern of racket, due date, etc)
 
 ### Getting Started with Development
 
@@ -46,7 +49,9 @@ Do not add sensitive information to the template.
 
 Instead, open the new `racket_stringer/settings/app.env` with your favorite text editor, uncomment the block of environment variables that pertain to your shell, and fill out the missing values. Then, source the `app.env` file:
 
-```source racket_stringer/settings/app.env```
+```
+source racket_stringer/settings/app.env
+```
 
 Note that you'll need to re-source this file if you make changes to it. This file should be kept out of source control, and it is included in this project's `.gitignore`. Moving or renaming this file will require an update to `.gitignore` to keep it out of source control.
 
