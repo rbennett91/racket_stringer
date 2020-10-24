@@ -31,7 +31,7 @@ class MyOrders(LoginRequiredMixin, TemplateView):
         ).order_by(
             '-due_date',
             'created_at',
-            )[:10]
+        )[:10]
 
         context['incomplete_orders'] = incomplete_orders
         return context

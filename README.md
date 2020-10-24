@@ -81,10 +81,6 @@ Visit http://<server_domain>:8080/racket_stringer in your web browser and login 
 * nginx 1.17.10
 * Ubuntu 20.04
 
-### Future Ideas
-* Add functionality to search historical orders
-* Improve UI
-
 ### Guides Used in Deployment
 * [Setting up Django and your web server with uWSGI and nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
 * [Deploying Django applications in production with uwsgi and nginx](https://medium.com/all-about-django/deploying-django-applications-in-production-with-uwsgi-and-nginx-78aac8c0f735)
