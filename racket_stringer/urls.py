@@ -49,6 +49,16 @@ urlpatterns = [
         name='new_customer'
     ),
     path(
+        'racket_stringer/show_customer/<int:pk>',
+        views.ShowCustomer.as_view(),
+        name='show_customer'
+    ),
+    path(
+        'racket_stringer/update_customer/<int:pk>',
+        views.UpdateCustomer.as_view(),
+        name='update_customer'
+    ),
+    path(
         'racket_stringer/search_rackets',
         views.search_rackets,
         name='search_rackets'

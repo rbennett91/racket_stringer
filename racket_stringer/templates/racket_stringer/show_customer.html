@@ -1,0 +1,25 @@
+{% extends "racket_stringer/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Customer: {{ object }}</div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">First name:</dt>
+                    <dd class="col-sm-9">{{ object.first_name }}</dd>
+                    <dt class="col-sm-3">Last name:</dt>
+                    <dd class="col-sm-9">{{ object.last_name }}</dd>
+                    <dt class="col-sm-3">Email Address:</dt>
+                    <dd class="col-sm-9">{{ object.email_address }}</dd>
+                </dl>
+                <hr>
+
+                <a class="btn btn-warning float-right" href="{% url 'update_customer' object.id %}" role="button">Update Customer</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

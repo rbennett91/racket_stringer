@@ -88,6 +88,22 @@ class NewCustomer(LoginRequiredMixin, CreateView):
         return reverse('new_order')
 
 
+class ShowCustomer(LoginRequiredMixin, DetailView):
+    http_method_names = ['get']
+    template_name = 'racket_stringer/show_customer.html'
+    model = Customer
+
+
+class UpdateCustomer(LoginRequiredMixin, UpdateView):
+    http_method_names = ['get', 'post']
+    template_name = 'racket_stringer/update_customer.html'
+    model = Customer
+    form_class = CustomerForm
+
+    def get_success_url(self):
+        return reverse('show_customer', kwargs={'pk': self.object.id})
+
+
 @login_required
 def search_rackets(request):
     search = request.GET.get('search', None)
