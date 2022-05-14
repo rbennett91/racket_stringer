@@ -18,9 +18,9 @@ from .forms import CustomerForm, OrderForm
 from .models import Customer, Order, Racket, String
 
 
-class MyOrders(LoginRequiredMixin, TemplateView):
+class Orders(LoginRequiredMixin, TemplateView):
     http_method_names = ["get"]
-    template_name = "racket_stringer/my_orders.html"
+    template_name = "racket_stringer/orders.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -71,7 +71,7 @@ class DeleteOrder(LoginRequiredMixin, DeleteView):
     template_name = "racket_stringer/delete_order.html"
     model = Order
 
-    success_url = reverse_lazy("my_orders")
+    success_url = reverse_lazy("orders")
 
 
 class NewCustomer(LoginRequiredMixin, CreateView):
