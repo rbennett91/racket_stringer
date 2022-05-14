@@ -4,47 +4,27 @@ from django.db import models
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(
-        'Customer',
-        on_delete=models.CASCADE
-    )
+    customer = models.ForeignKey("Customer", on_delete=models.CASCADE)
     racket = models.ForeignKey(
-        'Racket',
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True
+        "Racket", on_delete=models.CASCADE, null=True, blank=True
     )
     main_string = models.ForeignKey(
-        'String',
-        on_delete=models.CASCADE,
-        related_name='+',
-        null=True,
-        blank=True
+        "String", on_delete=models.CASCADE, related_name="+", null=True, blank=True
     )
     main_string_tension = models.PositiveSmallIntegerField(
         default=50,
-        validators=[
-            MaxValueValidator(90),
-            MinValueValidator(20)
-        ],
+        validators=[MaxValueValidator(90), MinValueValidator(20)],
         null=True,
-        blank=True
+        blank=True,
     )
     cross_string = models.ForeignKey(
-        'String',
-        on_delete=models.CASCADE,
-        related_name='+',
-        null=True,
-        blank=True
+        "String", on_delete=models.CASCADE, related_name="+", null=True, blank=True
     )
     cross_string_tension = models.PositiveSmallIntegerField(
         default=50,
-        validators=[
-            MaxValueValidator(90),
-            MinValueValidator(20)
-        ],
+        validators=[MaxValueValidator(90), MinValueValidator(20)],
         null=True,
-        blank=True
+        blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -77,8 +57,7 @@ class Racket(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['brand', 'model'],
-                name='unique_racket_name'
+                fields=["brand", "model"], name="unique_racket_name"
             ),
         ]
 
@@ -93,8 +72,7 @@ class String(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['brand', 'name'],
-                name='unique_string_name'
+                fields=["brand", "name"], name="unique_string_name"
             ),
         ]
 
@@ -110,7 +88,6 @@ class Customer(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['first_name', 'last_name'],
-                name='unique_customer_name'
+                fields=["first_name", "last_name"], name="unique_customer_name"
             ),
         ]
