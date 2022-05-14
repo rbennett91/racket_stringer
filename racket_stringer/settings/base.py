@@ -92,5 +92,7 @@ USE_TZ = True
 STATIC_ROOT = '/var/www/racket_stringer/static/'
 STATIC_URL = '/racket_stringer/static/'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

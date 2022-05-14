@@ -17,19 +17,14 @@ class Command(BaseCommand):
             'Babolat',
             'Gamma',
             'Head',
-            'Kirschbaum',
             'Luxilon',
             'MSV',
-            'Pacific',
-            'Polyfibre',
             'Prince',
-            'Signum Pro',
             'Solinco',
             'Tecnifibre',
-            'Tourna',
-            'Volkl',
             'Wilson',
             'Yonex',
+            'Dunlop',
         }
 
         payload = {

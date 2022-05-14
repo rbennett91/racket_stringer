@@ -22,7 +22,7 @@ class Order(models.Model):
         blank=True
     )
     main_string_tension = models.PositiveSmallIntegerField(
-        default=55,
+        default=50,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)
@@ -38,7 +38,7 @@ class Order(models.Model):
         blank=True
     )
     cross_string_tension = models.PositiveSmallIntegerField(
-        default=55,
+        default=50,
         validators=[
             MaxValueValidator(90),
             MinValueValidator(20)
@@ -47,6 +47,7 @@ class Order(models.Model):
         blank=True
     )
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     due_date = models.DateField()
     is_complete = models.BooleanField(default=False)
     assigned_to = models.ForeignKey(

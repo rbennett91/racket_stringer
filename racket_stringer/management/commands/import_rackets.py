@@ -34,6 +34,10 @@ class Command(BaseCommand):
                 'name': 'Yonex',
                 'url_ending': 'yonex-tennis-racquet-patterns',
             },
+            {
+                'name': 'Tecnifibre',
+                'url_ending': 'tecnifibre-tennis-racquet-patterns',
+            },
         ]
 
         for racket_manufacturer in racket_manufacturers:
