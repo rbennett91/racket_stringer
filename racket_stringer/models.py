@@ -36,8 +36,13 @@ class Order(models.Model):
     )
     notes = models.TextField(max_length=300, blank=True)
 
+    class Meta:
+        ordering = ["due_date"]
+
     def __str__(self):
-        return "{} - {}".format(self.customer.last_name, self.racket.model)
+        return "{} {} - {}".format(
+            self.customer.first_name, self.customer.last_name, self.racket.model
+        )
 
 
 class Racket(models.Model):

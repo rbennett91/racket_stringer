@@ -6,30 +6,35 @@ from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.http import JsonResponse
 from django.urls import reverse, reverse_lazy
-from django.views.generic import (
-    CreateView,
-    DeleteView,
-    DetailView,
-    TemplateView,
-    UpdateView,
-)
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
+from django_filters.views import FilterView
 
+from .filters import OrderFilter
 from .forms import CustomerForm, OrderForm
 from .models import Customer, Order, Racket, String
 
 
-class Orders(LoginRequiredMixin, TemplateView):
+class Orders(LoginRequiredMixin, FilterView):
     http_method_names = ["get"]
     template_name = "racket_stringer/orders.html"
+    model = Order
+    filterset_class = OrderFilter
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        incomplete_orders = Order.objects.filter(
-            assigned_to=self.request.user, is_complete=False
-        ).order_by("-due_date", "created_at",)[:10]
+        customer = self.request.GET.get("customer", "")
+        racket = self.request.GET.get("racket", "")
+        main_string = self.request.GET.get("main_string", "")
+        cross_string = self.request.GET.get("cross_string", "")
+        due_date = self.request.GET.get("due_date", "")
+        is_complete = self.request.GET.get("is_complete", "")
+        assigned_to = self.request.GET.get("assigned_to", "")
 
-        context["incomplete_orders"] = incomplete_orders
+        query_params = f"?customer={customer}&racket={racket}&main_string={main_string}&cross_string={cross_string}&due_date={due_date}&is_complete={is_complete}&assigned_to={assigned_to}"
+
+        context["query_params"] = query_params
         return context
 
 

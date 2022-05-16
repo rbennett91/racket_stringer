@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "racket_stringer",
     "crispy_forms",
+    "crispy_bootstrap5",
+    "django_filters",
     "django_extensions",
 ]
 
@@ -95,4 +97,5 @@ STATIC_URL = "/racket_stringer/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django-crispy-forms
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

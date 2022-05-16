@@ -26,14 +26,14 @@ class OrderForm(ModelForm):
             "cross_string": "Cross String",
             "cross_string_tension": "Cross String Tension",
             "due_date": "Due Date",
-            "is_complete": "Is Complete?",
+            "is_complete": "Is Order Complete?",
             "assigned_to": "Assigned to Stringer:",
         }
 
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.add_input(Submit("submit", "Submit", css_class="float-right"))
+        self.helper.add_input(Submit("submit", "Submit", css_class="float-end"))
 
 
 class CustomerForm(ModelForm):
@@ -61,4 +61,4 @@ class CustomerForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(CustomerForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.add_input(Submit("submit", "Submit", css_class="float-right"))
+        self.helper.add_input(Submit("submit", "Create", css_class="float-end"))

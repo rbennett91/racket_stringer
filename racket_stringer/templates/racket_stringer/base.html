@@ -1,30 +1,29 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Racket Stringer</title>
-    <link rel="shortcut icon" type="image/png" href="{% static 'racket_stringer/img/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static "racket_stringer/css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "racket_stringer/css/select2.min.css" %}">
-    <link rel="stylesheet" href="{% static "racket_stringer/css/flatpickr.min.css" %}">
-    <link rel="stylesheet" href="{% static "racket_stringer/css/app.css" %}">
-    {% block extra_css %}
-    {% endblock extra_css %}
-  </head>
-  <body>
-    <div class="container">
-    {% include "racket_stringer/top_navbar.html" %}
-    {% block content %}
-    {% endblock content %}
-    </div>
-    <script src="{% static "racket_stringer/js/jquery-3.6.0.min.js" %}"></script>
-    <script src="{% static "racket_stringer/js/popper.min.js" %}"></script>
-    <script src="{% static "racket_stringer/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "racket_stringer/js/select2.min.js" %}"></script>
-    <script src="{% static "racket_stringer/js/flatpickr.min.js" %}"></script>
-    {% block extra_js %}
-    {% endblock extra_js %}
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Racket Stringer</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'racket_stringer/img/favicon.ico' %}"/>
+        <link rel="stylesheet" href="{% static "racket_stringer/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "racket_stringer/css/select2.min.css" %}">
+        <link rel="stylesheet" href="{% static "racket_stringer/css/flatpickr.min.css" %}">
+        <link rel="stylesheet" href="{% static "racket_stringer/css/app.css" %}">
+        {% block extra_css %}
+        {% endblock extra_css %}
+    </head>
+    <body>
+        <div class="container">
+            {% include "racket_stringer/top_navbar.html" %}
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <script src="{% static "racket_stringer/js/jquery-3.6.0.min.js" %}"></script>
+        <script src="{% static "racket_stringer/js/bootstrap.bundle.min.js" %}"></script>
+        <script src="{% static "racket_stringer/js/select2.min.js" %}"></script>
+        <script src="{% static "racket_stringer/js/flatpickr.min.js" %}"></script>
+        {% block extra_js %}
+        {% endblock extra_js %}
+    </body>
 </html>
