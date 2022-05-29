@@ -17,16 +17,23 @@ class Command(BaseCommand):
 
         string_manufacturers = {
             "Babolat",
+            "Dunlop",
             "Gamma",
+            "Genesis",
             "Head",
+            "Kirschbaum",
             "Luxilon",
             "MSV",
+            "Pacific",
+            "Polyfibre",
             "Prince",
+            "Signum Pro",
             "Solinco",
             "Tecnifibre",
+            "Tourna",
+            "Volkl",
             "Wilson",
             "Yonex",
-            "Dunlop",
         }
 
         payload = {
