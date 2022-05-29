@@ -4,49 +4,30 @@ from django.db import models
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(
-        'Customer',
-        on_delete=models.CASCADE
-    )
+    customer = models.ForeignKey("Customer", on_delete=models.CASCADE)
     racket = models.ForeignKey(
-        'Racket',
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True
+        "Racket", on_delete=models.CASCADE, null=True, blank=True
     )
     main_string = models.ForeignKey(
-        'String',
-        on_delete=models.CASCADE,
-        related_name='+',
-        null=True,
-        blank=True
+        "String", on_delete=models.CASCADE, related_name="+", null=True, blank=True
     )
     main_string_tension = models.PositiveSmallIntegerField(
-        default=55,
-        validators=[
-            MaxValueValidator(90),
-            MinValueValidator(20)
-        ],
+        default=50,
+        validators=[MaxValueValidator(90), MinValueValidator(20)],
         null=True,
-        blank=True
+        blank=True,
     )
     cross_string = models.ForeignKey(
-        'String',
-        on_delete=models.CASCADE,
-        related_name='+',
-        null=True,
-        blank=True
+        "String", on_delete=models.CASCADE, related_name="+", null=True, blank=True
     )
     cross_string_tension = models.PositiveSmallIntegerField(
-        default=55,
-        validators=[
-            MaxValueValidator(90),
-            MinValueValidator(20)
-        ],
+        default=50,
+        validators=[MaxValueValidator(90), MinValueValidator(20)],
         null=True,
-        blank=True
+        blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     due_date = models.DateField()
     is_complete = models.BooleanField(default=False)
     assigned_to = models.ForeignKey(
@@ -55,8 +36,13 @@ class Order(models.Model):
     )
     notes = models.TextField(max_length=300, blank=True)
 
+    class Meta:
+        ordering = ["due_date"]
+
     def __str__(self):
-        return "{} - {}".format(self.customer.last_name, self.racket.model)
+        return "{} {} - {}".format(
+            self.customer.first_name, self.customer.last_name, self.racket.model
+        )
 
 
 class Racket(models.Model):
@@ -76,8 +62,7 @@ class Racket(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['brand', 'model'],
-                name='unique_racket_name'
+                fields=["brand", "model"], name="unique_racket_name"
             ),
         ]
 
@@ -92,8 +77,7 @@ class String(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['brand', 'name'],
-                name='unique_string_name'
+                fields=["brand", "name"], name="unique_string_name"
             ),
         ]
 
@@ -109,7 +93,6 @@ class Customer(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['first_name', 'last_name'],
-                name='unique_customer_name'
+                fields=["first_name", "last_name"], name="unique_customer_name"
             ),
         ]

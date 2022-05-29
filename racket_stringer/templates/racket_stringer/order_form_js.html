@@ -1,9 +1,17 @@
 <script>
 $(document).ready(function() {
-    $("#id_customer").select2({});
-    $("#id_assigned_to").select2({});
+    $("#id_customer").select2({
+        placeholder: '---------',
+        allowClear: true,
+    });
+    $("#id_assigned_to").select2({
+        placeholder: '---------',
+        allowClear: true,
+    });
     $("#id_racket").select2({
         minimumInputLength: 3,
+        placeholder: '---------',
+        allowClear: true,
         ajax: {
             url: '/racket_stringer/search_rackets',
             delay: 300,
@@ -17,6 +25,8 @@ $(document).ready(function() {
     });
     $("#id_main_string").select2({
         minimumInputLength: 3,
+        placeholder: '---------',
+        allowClear: true,
         ajax: {
             url: '/racket_stringer/search_strings',
             delay: 300,
@@ -30,6 +40,8 @@ $(document).ready(function() {
     });
     $("#id_cross_string").select2({
         minimumInputLength: 3,
+        placeholder: '---------',
+        allowClear: true,
         ajax: {
             url: '/racket_stringer/search_strings',
             delay: 300,
@@ -41,9 +53,7 @@ $(document).ready(function() {
             }
         }
     });
-});
 
-$(document).ready(function() {
     $("#id_due_date").flatpickr();
 });
 </script>

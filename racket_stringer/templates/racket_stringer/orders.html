@@ -1,0 +1,102 @@
+{% extends "racket_stringer/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Orders</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body bg-light">
+                                <h5 class="card-title">Search Filters</h5>
+                                <form method="get">
+                                    {{ filter.form|crispy }}
+                                    <button class="btn btn-primary float-end" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Search Results</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Customer</th>
+                                                <th scope="col">Due</th>
+                                                <th scope="col">Stringer</th>
+                                                <th scope="col">Created On</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for order in page_obj %}
+                                            <tr>
+                                                <td><a href="{% url 'show_order' order.id %}">{{ order.customer }}</a></td>
+                                                <td>{{ order.due_date|date:"n/j/y" }}</td>
+                                                <td>{{ order.assigned_to }}</td>
+                                                <td>{{ order.created_at|date:"n/j/y" }}</td>
+                                            </tr>
+                                            {% empty %}
+                                            <tr>
+                                                <td>No orders found.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <nav aria-label="Search results navigation">
+                                    <ul class="pagination justify-content-end">
+                                        <li class="page-item">
+                                            <a class="page-link" {% if page_obj.has_previous %}href="{{ query_params }}&page=1"{% endif %} aria-label="First">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        {% if page_obj.has_previous %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{ query_params }}&page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                                <span aria-hidden="true">{{ page_obj.previous_page_number }}</span>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" aria-label="Current">
+                                                <span aria-hidden="true">{{ page_obj.number }}</span>
+                                            </a>
+                                        </li>
+                                        {% if page_obj.has_next %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{ query_params }}&page={{ page_obj.next_page_number }}" aria-label="Next">
+                                                <span aria-hidden="true">{{ page_obj.next_page_number }}</span>
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                        <li class="page-item">
+                                            <a class="page-link" {% if page_obj.has_next %}href="{{ query_params }}&page={{ page_obj.paginator.num_pages }}"{% endif %} aria-label="Last">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+{% include "racket_stringer/order_form_js.html" %}
+{% endblock extra_js %}

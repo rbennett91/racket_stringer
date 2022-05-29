@@ -1,8 +1,8 @@
 # racket_stringer
-A Python and Django tennis racket stringing CMS
+A Python and Django tennis racket stringing app
 
 ## Motivation
-I string tennis rackets, mostly for myself but also for friends and teammates. This simple webapp helps manage the rackets I string by:
+I string tennis rackets, both for myself and for friends and teammates. This webapp manages the rackets I string by:
 * tracking customers and their orders
 * maintaining a database with rackets and strings (shamelessly scraped from [Klipper USA](https://klipperusa.com/) and [Tennis Warehouse University](http://twu.tennis-warehouse.com))
 * cataloging all pertinent order information in one place (strings + tension to use, string pattern of racket, due date, etc)
@@ -61,7 +61,7 @@ python manage.py migrate
 ```
 
 #### Populate the Database
-Use the custom Django Management Commands to populate the database with rackets and strings:
+Use the custom Django Management Commands to add new rackets and strings to the database:
 ```
 python manage.py import_rackets
 python manage.py import_strings
@@ -80,15 +80,11 @@ python manage.py runserver_plus 0.0.0.0:8080
 Visit http://<server_domain>:8080/racket_stringer in your web browser and login with the newly created user.
 
 ### Built and Deployed with
-* Python 3.8.2
-* PostgreSQL 12.2
-* uWSGI 2.0.19.1
-* nginx 1.17.10
-* Ubuntu 20.04
+* Python 3.9.5
+* PostgreSQL 13.5
 
 ### Future Ideas
-* Add functionality to search historical orders
-* Improve UI
+Deploy as a managed app on Digital Ocean
 
 ### Guides Used in Deployment
 * [Setting up Django and your web server with uWSGI and nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
