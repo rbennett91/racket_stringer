@@ -12,7 +12,7 @@ urlpatterns = [
     ),
     path(
         "racket_stringer/",
-        RedirectView.as_view(url=reverse_lazy("orders")),
+        RedirectView.as_view(url=reverse_lazy("new_order")),
         name="index",
     ),
     path("racket_stringer/orders", views.Orders.as_view(), name="orders"),
