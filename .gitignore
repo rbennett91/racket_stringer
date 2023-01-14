@@ -5,3 +5,4 @@ __pycache__/
 *.sw*
 *.sqlite3
 todo.txt
+.python-version
