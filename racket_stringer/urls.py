@@ -35,6 +35,7 @@ urlpatterns = [
     path(
         "racket_stringer/new_customer", views.NewCustomer.as_view(), name="new_customer"
     ),
+    path("racket_stringer/new_string", views.NewString.as_view(), name="new_string"),
     path("racket_stringer/search_rackets", views.search_rackets, name="search_rackets"),
     path("racket_stringer/search_strings", views.search_strings, name="search_strings"),
 ]
