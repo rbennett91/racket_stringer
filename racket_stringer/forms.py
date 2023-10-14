@@ -2,7 +2,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django.forms import ModelForm
 
-from .models import Customer, Order
+from .models import Customer, Order, String
 
 
 class OrderForm(ModelForm):
@@ -60,5 +60,27 @@ class CustomerForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CustomerForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.add_input(Submit("submit", "Create", css_class="float-end"))
+
+
+class StringForm(ModelForm):
+    class Meta:
+        model = String
+        fields = [
+            "brand",
+            "name",
+        ]
+
+    def clean_brand(self):
+        brand = self.cleaned_data["brand"]
+        return brand.capitalize()
+
+    def clean_name(self):
+        name = self.cleaned_data["name"]
+        return name.capitalize()
+
+    def __init__(self, *args, **kwargs):
+        super(StringForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.add_input(Submit("submit", "Create", css_class="float-end"))

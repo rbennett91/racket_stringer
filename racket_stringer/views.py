@@ -10,7 +10,7 @@ from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from django_filters.views import FilterView
 
 from .filters import OrderFilter
-from .forms import CustomerForm, OrderForm
+from .forms import CustomerForm, OrderForm, StringForm
 from .models import Customer, Order, Racket, String
 
 
@@ -84,6 +84,16 @@ class NewCustomer(LoginRequiredMixin, CreateView):
     template_name = "racket_stringer/new_customer.html"
     model = Customer
     form_class = CustomerForm
+
+    def get_success_url(self):
+        return reverse("new_order")
+
+
+class NewString(LoginRequiredMixin, CreateView):
+    http_method_names = ["get", "post"]
+    template_name = "racket_stringer/new_string.html"
+    model = String
+    form_class = StringForm
 
     def get_success_url(self):
         return reverse("new_order")
