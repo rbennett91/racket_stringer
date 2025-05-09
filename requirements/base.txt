@@ -1,8 +1,8 @@
-Django==4.2.6
-django-crispy-forms==2.0
-crispy-bootstrap5==0.7
-django-filter==23.3
-django-extensions==3.2.3
-beautifulsoup4==4.12.2
-lxml==4.9.3
-requests==2.31.0
+Django==4.2.21
+django-crispy-forms==2.4
+crispy-bootstrap5==2025.4
+django-filter==25.1
+django-extensions==4.1
+beautifulsoup4==4.13.4
+lxml==5.4.0
+requests==2.32.3
