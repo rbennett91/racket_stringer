@@ -1,3 +1,165 @@
 .container {
     max-width: 992px;
 }
+
+:root {
+    --primary-color: #3498db; /* Modern blue */
+    --secondary-color: #2ecc71; /* Fresh green */
+    --accent-color: #e74c3c; /* Vibrant red */
+    --dark-color: #2c3e50; /* Dark blue-gray */
+    --light-color: #f8f9fa; /* Light gray */
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+/* Add animation for page load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Apply custom styling to navbar */
+.navbar {
+    background-color: var(--dark-color) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.navbar .nav-link {
+    color: var(--light-color) !important;
+}
+
+.navbar .nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Cards with modern styling */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--light-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+}
+
+/* Custom button styling */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* Table styling */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th {
+    background-color: var(--light-color);
+    border-top: none;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* Pagination styling */
+.pagination .page-link {
+    color: var(--primary-color);
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Add subtle transitions */
+.card,
+.btn,
+.nav-link,
+.form-control {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Add subtle hover effects to cards */
+.card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card content styling */
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Form styling */
+.form-control,
+.select2-container--default .select2-selection--single {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 0.75rem;
+    height: auto;
+}
+
+.form-control:focus,
+.select2-container--default.select2-container--focus
+    .select2-selection--single {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Make flatpickr datepicker better */
+.flatpickr-calendar {
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.flatpickr-day.selected {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
