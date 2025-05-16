@@ -37,7 +37,7 @@ class Order(models.Model):
     notes = models.TextField(max_length=300, blank=True)
 
     class Meta:
-        ordering = ["due_date"]
+        ordering = ["-due_date"]
 
     def __str__(self):
         return "{} {} - {}".format(
