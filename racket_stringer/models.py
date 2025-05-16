@@ -6,7 +6,7 @@ from django.db import models
 class Order(models.Model):
     customer = models.ForeignKey("Customer", on_delete=models.CASCADE)
     racket = models.ForeignKey(
-        "Racket", on_delete=models.CASCADE, null=True, blank=True
+        "Racket", on_delete=models.CASCADE
     )
     main_string = models.ForeignKey(
         "String", on_delete=models.CASCADE, related_name="+", null=True, blank=True
