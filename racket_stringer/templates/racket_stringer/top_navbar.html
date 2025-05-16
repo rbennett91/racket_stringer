@@ -24,7 +24,10 @@
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout - ({{ request.user }})</a>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <input class="nav-link" type="submit" value="Logout - ({{ request.user }})" />
+                    </form>
                 </li>
                 {% else %}
                 <li class="nav-item">
