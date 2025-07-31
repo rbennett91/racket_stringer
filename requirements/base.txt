@@ -5,4 +5,4 @@ django-filter==25.1
 django-extensions==4.1
 beautifulsoup4==4.13.4
 lxml==5.4.0
-requests==2.32.3
+requests==2.32.4
